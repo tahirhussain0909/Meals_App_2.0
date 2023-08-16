@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 //import 'package:meals_app/screens/categories_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meals_app_2/screens/tabs.dart';
@@ -23,7 +24,9 @@ void main() {
       debugShowCheckedModeBanner: true,
       theme: kTheme,
       themeMode: ThemeMode.dark,
-      home: const TabsScreen(),
+      home: const ProviderScope(
+        child: TabsScreen(),
+      ),
     ),
   );
 }
