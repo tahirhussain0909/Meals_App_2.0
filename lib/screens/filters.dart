@@ -3,17 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // import 'package:meals/screens/tabs.dart';
 // import 'package:meals/widgets/main_drawer.dart';
-import 'package:meals_app_2/provider/filters_provider.dart';
+import 'package:meals_app_2/providers/filters_provider.dart';
 
 class FiltersScreen extends ConsumerWidget {
   const FiltersScreen({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final activeFilters = ref.watch(filtersProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Filters'),
+        title: const Text('Your Filters'),
       ),
       body: Column(
         children: [

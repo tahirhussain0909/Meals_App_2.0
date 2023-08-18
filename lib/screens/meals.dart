@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:meals_app_2/models/meal.dart';
 import 'package:meals_app_2/screens/meal_details.dart';
@@ -18,25 +17,12 @@ class MealsScreen extends StatelessWidget {
   void selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (ctx) => ProviderScope(
-          child: MealDetailsScreen(
-            meal: meal,
-          ),
+        builder: (ctx) => MealDetailsScreen(
+          meal: meal,
         ),
       ),
     );
   }
-
-
-  // void selectMeal(BuildContext context, Meal meal) {
-  //   Navigator.of(context).push(
-  //     MaterialPageRoute(
-  //       builder: (ctx) => MealDetailsScreen(
-  //         meal: meal,
-  //       ),
-  //     ),
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
