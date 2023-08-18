@@ -19,14 +19,20 @@ final kTheme = ThemeData(
 );
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(const App());
+}
+
+class App extends StatelessWidget {
+  const App({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: true,
       theme: kTheme,
       themeMode: ThemeMode.dark,
       home: const ProviderScope(
         child: TabsScreen(),
       ),
-    ),
-  );
+    );
+  }
 }

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:meals_app_2/provider/favorites_provider.dart';
-import 'package:meals_app_2/provider/meals_provider.dart';
+
+// import 'package:meals_app_2/models/meal.dart';
 import 'package:meals_app_2/screens/categories.dart';
 import 'package:meals_app_2/screens/filters.dart';
 import 'package:meals_app_2/screens/meals.dart';
 import 'package:meals_app_2/widgets/main_drawer.dart';
+import 'package:meals_app_2/provider/meals_provider.dart';
+import 'package:meals_app_2/provider/favorites_provider.dart';
 
 const kInitialFilters = {
   Filter.glutenFree: false,
   Filter.lactoseFree: false,
-  Filter.vegan: false,
   Filter.vegetarian: false,
+  Filter.vegan: false
 };
 
 class TabsScreen extends ConsumerStatefulWidget {
@@ -26,15 +28,6 @@ class TabsScreen extends ConsumerStatefulWidget {
 class _TabsScreenState extends ConsumerState<TabsScreen> {
   int _selectedPageIndex = 0;
   Map<Filter, bool> _selectedFilters = kInitialFilters;
-
-  void _showInfoMessage(String message) {
-    ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-      ),
-    );
-  }
 
   void _selectPage(int index) {
     setState(() {
@@ -52,6 +45,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
           ),
         ),
       );
+
       setState(() {
         _selectedFilters = result ?? kInitialFilters;
       });
